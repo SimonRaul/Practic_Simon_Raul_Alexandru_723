@@ -36,4 +36,13 @@ public class FahrerController {
         System.out.println("--------------------------------");
 
     }
+
+    public void printSortedDrivers(){
+        System.out.println("Here are the sorted drivers: ");
+        for(Fahrer f : fahrerService.sortFahrers()) {
+            System.out.println(f);
+        }
+        System.out.println("--------------------------------");
+
+    }
 }
