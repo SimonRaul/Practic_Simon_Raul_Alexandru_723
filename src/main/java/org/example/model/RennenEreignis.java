@@ -17,6 +17,28 @@ public class RennenEreignis {
         this.lap = lap;
     }
 
+    public int getComputedPoints() {
+        if(this.typ == EreignisTyp.OVERTAKE) {
+            return this.basePoints + 1;
+        }
+        else if(this.typ == EreignisTyp.FASTEST_LAP){
+            return this.basePoints + 2 * (this.lap % 3);
+        }
+        else if(this.typ == EreignisTyp.TRACK_LIMITS){
+            return this.basePoints - 5;
+        }
+        else if(this.typ == EreignisTyp.COLLISION){
+            return this.basePoints - 10 - this.lap;
+        }
+        else if(this.typ == EreignisTyp.PIT_STOP && this.lap <= 10){
+            return this.basePoints + 2;
+        }
+        else
+            return this.basePoints;
+    }
+
+    public void setComputedPoints(int basePoints) {}
+
     public int getId() {
         return id;
     }
