@@ -29,6 +29,8 @@ public class Main  {
         fahrerController.printFilteredDrivers();
         fahrerController.printSortedDrivers();
         fahrerController.saveSortedDrivers();
+        eventsController.printTop5Points();
+        eventsController.saveNrOfEvents();
 
     }
 }

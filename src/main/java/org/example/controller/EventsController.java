@@ -26,4 +26,9 @@ public class EventsController {
             eventNr++;
         }
     }
+
+    public void saveNrOfEvents(){
+        rennenEreignisService.saveRennenEreignis();
+        System.out.println("Events types saved.");
+    }
 }
