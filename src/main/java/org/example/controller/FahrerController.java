@@ -3,6 +3,9 @@ package org.example.controller;
 import org.example.model.Fahrer;
 import org.example.service.FahrerService;
 
+import java.util.List;
+import java.util.Scanner;
+
 public class FahrerController {
     private FahrerService fahrerService;
 
@@ -19,5 +22,18 @@ public class FahrerController {
             System.out.println(fahrer);
         }
         System.out.println("--------------------------------");
+    }
+
+    public void printFilteredDrivers(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the name of the team: ");
+        String team = sc.nextLine();
+        List<Fahrer> filteredDrivers = fahrerService.filterByTeamAndStatus(team);
+
+        for (Fahrer fahrer : filteredDrivers) {
+            System.out.println(fahrer);
+        }
+        System.out.println("--------------------------------");
+
     }
 }

@@ -26,6 +26,7 @@ public class Main  {
         eventsController.printNrOfEvents();
         strafeController.printNrOfPenalties();
         fahrerController.printAllDrivers();
+        fahrerController.printFilteredDrivers();
 
     }
 }
