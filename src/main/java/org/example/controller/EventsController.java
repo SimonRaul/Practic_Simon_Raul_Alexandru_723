@@ -25,10 +25,14 @@ public class EventsController {
             + ", computed=" + entry.getValue());
             eventNr++;
         }
+        System.out.println("--------------------------------");
+
     }
 
     public void saveNrOfEvents(){
         rennenEreignisService.saveRennenEreignis();
         System.out.println("Events types saved.");
+        System.out.println("--------------------------------");
+
     }
 }

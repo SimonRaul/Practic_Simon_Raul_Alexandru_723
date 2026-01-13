@@ -49,5 +49,21 @@ public class FahrerController {
     public void saveSortedDrivers(){
         fahrerService.saveSortedFahrers();
         System.out.println("The sorted drivers were saved.");
+        System.out.println("--------------------------------");
+
+    }
+
+    public void printTop5DriversByScore(){
+        System.out.println("Here are the first 5 drivers by score: ");
+        List<Fahrer> top5 = fahrerService.getTop5Scores();
+        int nr = 1;
+        for (Fahrer f : top5) {
+            System.out.println(nr + ". " + f.getName() + " (" + f.getTeam()
+                    + ") -> " + fahrerService.calculateTotalScore(f.getId()));
+        }
+
+        System.out.println();
+        System.out.println("Winning team: " + top5.get(0).getTeam());
+        System.out.println("-----------------------------------");
     }
 }

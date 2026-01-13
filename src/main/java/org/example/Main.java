@@ -15,7 +15,7 @@ public class Main  {
         FahrerRepo fahrerRepo = new FahrerRepo("C:\\Users\\Simon Raul\\IdeaProjects\\Seminar MAP\\practic map\\Practic_Simon_Raul_Alexandru_723\\src\\main\\resources\\drivers.json");
         RennenEreignisRepo ereignisRepo = new RennenEreignisRepo("C:\\Users\\Simon Raul\\IdeaProjects\\Seminar MAP\\practic map\\Practic_Simon_Raul_Alexandru_723\\src\\main\\resources\\events.json");
         StrafeRepo strafeRepo = new StrafeRepo("C:\\Users\\Simon Raul\\IdeaProjects\\Seminar MAP\\practic map\\Practic_Simon_Raul_Alexandru_723\\src\\main\\resources\\penalties.json");
-        FahrerService fahrerService = new FahrerService(fahrerRepo);
+        FahrerService fahrerService = new FahrerService(fahrerRepo, ereignisRepo, strafeRepo);
         RennenEreignisService ereignisService = new RennenEreignisService(ereignisRepo);
         StrafeService strafeService = new StrafeService(strafeRepo);
         FahrerController fahrerController = new FahrerController(fahrerService);
@@ -31,6 +31,7 @@ public class Main  {
         fahrerController.saveSortedDrivers();
         eventsController.printTop5Points();
         eventsController.saveNrOfEvents();
+        fahrerController.printTop5DriversByScore();
 
     }
 }
