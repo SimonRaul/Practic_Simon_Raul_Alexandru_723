@@ -45,4 +45,9 @@ public class FahrerController {
         System.out.println("--------------------------------");
 
     }
+
+    public void saveSortedDrivers(){
+        fahrerService.saveSortedFahrers();
+        System.out.println("The sorted drivers were saved.");
+    }
 }

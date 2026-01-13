@@ -28,6 +28,7 @@ public class Main  {
         fahrerController.printAllDrivers();
         fahrerController.printFilteredDrivers();
         fahrerController.printSortedDrivers();
+        fahrerController.saveSortedDrivers();
 
     }
 }
