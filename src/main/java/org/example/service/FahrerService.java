@@ -73,12 +73,11 @@ public class FahrerService {
         return computedPointsSum - penaltiesSum;
     }
 
+    //merge dar nu sorteaza si dupa nume
     public List<Fahrer> getTop5Scores(){
         return fahrerRepo.getFahrers().stream()
                 .sorted(Comparator.comparing(f -> calculateTotalScore(f.getId())))
                 .limit(5)
                 .toList().reversed();
-
-
     }
 }
