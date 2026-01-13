@@ -1,17 +1,31 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+import org.example.controller.EventsController;
+import org.example.controller.FahrerController;
+import org.example.controller.StrafeController;
+import org.example.repo.FahrerRepo;
+import org.example.repo.RennenEreignisRepo;
+import org.example.repo.StrafeRepo;
+import org.example.service.FahrerService;
+import org.example.service.RennenEreignisService;
+import org.example.service.StrafeService;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
-        }
+public class Main  {
+    public static void main(String[] args) {
+        FahrerRepo fahrerRepo = new FahrerRepo("C:\\Users\\Simon Raul\\IdeaProjects\\Seminar MAP\\practic map\\Practic_Simon_Raul_Alexandru_723\\src\\main\\resources\\drivers.json");
+        RennenEreignisRepo ereignisRepo = new RennenEreignisRepo("C:\\Users\\Simon Raul\\IdeaProjects\\Seminar MAP\\practic map\\Practic_Simon_Raul_Alexandru_723\\src\\main\\resources\\events.json");
+        StrafeRepo strafeRepo = new StrafeRepo("C:\\Users\\Simon Raul\\IdeaProjects\\Seminar MAP\\practic map\\Practic_Simon_Raul_Alexandru_723\\src\\main\\resources\\penalties.json");
+        FahrerService fahrerService = new FahrerService(fahrerRepo);
+        RennenEreignisService ereignisService = new RennenEreignisService(ereignisRepo);
+        StrafeService strafeService = new StrafeService(strafeRepo);
+        FahrerController fahrerController = new FahrerController(fahrerService);
+        StrafeController strafeController = new StrafeController(strafeService);
+        EventsController eventsController = new EventsController(ereignisService);
+
+        fahrerController.printNrOfDrivers();
+        eventsController.printNrOfEvents();
+        strafeController.printNrOfPenalties();
+        fahrerController.printAllDrivers();
+
     }
 }
